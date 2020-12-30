@@ -67,7 +67,7 @@ fn main() {
     
     
     
-                //Both of the below methods for l and r will get the relevant numbers. The r version is cleaner but you need to how many ints there will be. The l version uses a loop.
+                //Both of the below methods for l and r will get the relevant numbers. The r version is cleaner but you need to how many ints there will be. The l version uses a loop to solve this issue.
     const RADIX: u32 = 10;
 
     let vector6: Vec<&str> = vec!["l30", "r60", "l90",];
@@ -87,7 +87,7 @@ fn main() {
     }
     
     
-                   //clean up the above. However this feels a verbose. The next step is to join the numbers back together. So that 6 and 0 becomes 60. This is so that in the next step afterwards we can use the number to change the direction of the ship.
+                   //cleaned up the above. However this feels a bit verbose. The next step is to join the numbers back together. So that 6 and 0 becomes 60. This is so that in the next step afterwards we can use the number to change the direction of the ship.
     let vector7: Vec<&str> = vec!["l30", "r60", "l90",];
     for x in vector7 {
         let mut characters = x.chars();
