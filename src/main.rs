@@ -67,4 +67,49 @@ fn main() {
     
     
     
+                //Both of the below methods for l and r will get the relevant numbers. The r version is cleaner but you need to how many ints there will be. The l version uses a loop.
+    const RADIX: u32 = 10;
+
+    let vector6: Vec<&str> = vec!["l30", "r60", "l90",];
+    for x in vector6 {
+        let mut characters = x.chars();
+         //println!("{:?}", characters);
+         while let Some(b) = characters.next() {
+            match b {
+                'l' => {println!("This is an l and it means to go left by the following degrees");
+                while let Some(c) = characters.next() {match c {
+                    _ => println!("{}",c.to_digit(RADIX).unwrap())
+                }}},
+                'r' => println!("This is a r and it means to go right by {}{} degrees", characters.next().unwrap().to_digit(RADIX).unwrap(), characters.next().unwrap().to_digit(RADIX).unwrap()),
+                _ => println!("This is not a letter"),
+            }
+        }
+    }
+    
+    
+                   //clean up the above. However this feels a verbose. The next step is to join the numbers back together. So that 6 and 0 becomes 60. This is so that in the next step afterwards we can use the number to change the direction of the ship.
+    let vector7: Vec<&str> = vec!["l30", "r60", "l90",];
+    for x in vector7 {
+        let mut characters = x.chars();
+         //println!("{:?}", characters);
+         match characters.next() {
+            Some('l') => 
+                {println!("This is an l and it means to go left by the following degrees");
+                while let Some(c) = characters.next() {
+                match c {
+                    _ => println!("{}", c.to_digit(RADIX).unwrap()),
+                  }
+                  }
+                  },
+            Some('r') =>
+                {println!("This is an r and it means to go right by the following degrees");
+                while let Some(c) = characters.next() {
+                match c {
+                    _ => println!("{}", c.to_digit(RADIX).unwrap()),
+                  }
+                  }
+                  },
+            _ => println!("nothing"),
+            }
+            }
 }
