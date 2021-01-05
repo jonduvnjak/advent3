@@ -112,4 +112,20 @@ fn main() {
             _ => println!("nothing"),
             }
             }
+            
+                               //Made the above much more terse and also made it so that the resulting "degree" amount is given as a u32. I also learned how powerful collect is and that parse can be used to get all the ints. One issue though is you need to be sure that there are no chars, especially when only using unwrap. I also learned about the turbofish - ::<>. This helps the inference algorithm understand specifically which type you're trying to parse into.
+    let vector8: Vec<&str> = vec!["l30", "r60", "l90",];
+    for x in vector8 {
+        let mut characters = x.chars();
+         //println!("{:?}", characters);
+         match characters.next() {
+            Some('l') => 
+                { println!("This is an l and it means to go left by the following degrees! {:?}", characters.collect::<String>().parse::<u32>().unwrap());
+                  },
+            Some('r') =>
+                { println!("This is an r and it means to go right by the following degrees {:?}", characters.collect::<String>().parse::<u32>().unwrap());
+                  },
+            _ => println!("nothing"),
+            }
+            }
 }
